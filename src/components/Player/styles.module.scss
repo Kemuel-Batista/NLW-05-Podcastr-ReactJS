@@ -1,0 +1,407 @@
+.playerContainer {
+  width: 26.5rem;
+  height: 100vh;
+  padding: 2rem 4rem;
+
+  background: var(--purple-500);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  strong {
+    font-family: Lexend, sans-serif;
+    font-weight: 600;
+  }
+
+  footer {
+    align-self: stretch;
+
+    &.empty .progress{
+      opacity: 0.5;
+    }
+  }
+}
+
+.currentEpisode {
+  text-align: center;
+
+  img {
+    border-radius: 1.5rem;
+  }
+
+  strong {
+    display: block;
+    margin-top: 2rem;
+    font: 600 1.25rem Lexend, sans-serif;
+    line-height: 1.75rem;
+  }
+
+  span {
+    display: block;
+    margin-top: 1rem;
+    opacity: 0.6;
+    line-height: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.emptyPlayer {
+  width: 100%;
+  height: 20rem;
+  border: 1.5px dashed var(--purple-300);
+  border-radius: 1.5rem;
+  background: linear-gradient(143.8deg, rgba(145,100,250, 0.8) 0%, rgba(0,0,0,0) 100%);
+
+  padding: 4rem;
+  text-align: center;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+
+  span {
+    display: inline-block;
+    width: 4rem;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .slider {
+    flex: 1;
+
+    .emptySlider {
+      width: 100%;
+      height: 4px;
+      background: var(--purple-300);
+      border-radius: 2px;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1.5rem;
+
+  button {
+    background: transparent;
+    border: 0;
+    font-size: 0;
+    transition: filter 0.2s;
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.5;
+    }
+
+    &:hover:not(:disabled){
+      filter: brightness(0.7);
+    }
+
+    &.isActive {
+      filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+    }
+
+    &.isActive:hover {
+      filter: brightness(0.6) invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+    }
+
+    &.playButton {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      background: var(--purple-400);
+
+      &:hover:not(:disabled){
+        filter: brightness(0.95);
+      }
+    }
+  }
+}
+
+.playerContainerResponsive {
+  height: 6rem;
+  padding: 0 2rem;
+
+  background: var(--purple-500);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.emptyPlayerResponsive {
+  width: 25%;
+  height: 5rem;
+  border: 1.5px dashed var(--purple-300);
+  border-radius: 1.5rem;
+  background: linear-gradient(143.8deg, rgba(145,100,250, 0.8) 0%, rgba(0,0,0,0) 100%);
+
+  text-align: center;
+  
+  display: flex;
+  align-items: center;
+}
+
+.currentEpisodeResponsive {
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+
+  img {
+    border-radius: 1.5rem;
+    height: 4rem;
+    width: 4rem;
+  }
+
+  strong {
+    font: 400 0.875rem Lexend, sans-serif;
+    max-width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.buttonsResponsive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  button {
+    background: transparent;
+    border: 0;
+    font-size: 0;
+    transition: filter 0.2s;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    img {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.5;
+    }
+
+    &:hover:not(:disabled){
+      filter: brightness(0.7);
+    }
+
+    &.isActive {
+      filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+    }
+
+    &.isActive:hover {
+      filter: brightness(0.6) invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+    }
+
+    &.playButtonResponsive {
+      border-radius: 1rem;
+      background: var(--purple-400);
+
+      &:hover:not(:disabled){
+        filter: brightness(0.95);
+      }
+    }
+  }
+}
+
+.isFullPlayer {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+
+  flex: 1;
+  height: 100vh;
+
+  transition: width 2s, height 2s, opacity 2s 2s;
+
+  padding: 2rem 2rem;
+
+  background: var(--purple-500);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      margin-right: 1rem;
+    }
+
+    button {
+      border-radius: 1rem;
+      background: var(--purple-400);
+
+      margin-right: 2rem;
+
+      background: transparent;
+      border: 0;
+      font-size: 0;
+      transition: filter 0.2s;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}
+
+.footerFullContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+  gap: 2rem;
+
+  .buttonLeft {
+    display: flex;
+    align-self: flex-start;
+    justify-content: center;
+
+    margin-bottom: 3rem;
+
+    button {
+      background: transparent;
+      border: 0;
+      font-size: 0;
+      transition: filter 0.2s;
+      margin-left: auto 2rem;
+    }
+
+    span {
+      margin-left: 1rem;
+      font: 600 1rem Lexend, sans-serif;
+      opacity: 0.6;
+    }
+  }
+
+  .currentEpisodeFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-bottom: 3rem;
+
+    img {
+      width: 4rem;
+      height: 10rem;
+      border-radius: 1rem;
+    }
+
+    strong {
+      display: block;
+      margin-top: 3rem;
+      font: 600 1.25rem Lexend, sans-serif;
+      line-height: 1.75rem;
+    }
+
+    span {
+      display: block;
+      margin-top: 1.5rem;
+      opacity: 0.6;
+      line-height: 1.5rem;
+    }
+  }
+
+  .buttonsFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+
+    height: 1.5rem;
+
+    margin-bottom: 3rem;
+
+    button {
+      background: transparent;
+      border: 0;
+      font-size: 0;
+      transition: filter 0.2s;
+
+      &:disabled {
+        cursor: default;
+        opacity: 0.5;
+      }
+
+      &:hover:not(:disabled){
+        filter: brightness(0.7);
+      }
+
+      &.isActive {
+        filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+      }
+
+      &.isActive:hover {
+        filter: brightness(0.6) invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+      }
+
+      &.playButton {
+        height: 3rem;
+        width: 3rem;      
+        border-radius: 1rem;
+        background: var(--purple-400);
+
+        &:hover:not(:disabled){
+          filter: brightness(0.95);
+        }
+      }
+    }
+  }
+
+  .progressFullPlayer {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    gap: 2rem;
+
+    align-self: stretch;
+
+    margin-bottom: 3rem;
+  
+    span {
+      display: inline-block;
+      width: 4rem;
+      text-align: center;
+    }
+  
+    .sliderFullPlayer {
+      flex: 1;
+    }
+  }
+}
